@@ -293,7 +293,25 @@
 <p>In general, any machine learning problem can be assigned to one of two broad classifications:</p>
 <p><strong>Supervised learning</strong> and <strong>Unsupervised learning</strong>.</p>
 <h2 id="1-Supervised-learning"><a href="#1-Supervised-learning" class="headerlink" title="1. Supervised learning"></a>1. Supervised learning</h2><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations:"></a>Notations:</h3><p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$<br><strong>Target</strong> (output variables) : $y ^ { ( i ) }$<br><strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$<br><strong>Training Set</strong>: $\left{(x^{(i)} , y^{(i)} ); i =<br>1, . . . , m\right}$<br>the <strong>Space</strong> of input values:  $\mathcal { X }$<br>the <strong>Space</strong> of output values: $\mathcal { Y }$<br><strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$<br>|target variables|problems|<br>|:————–:|:——:|<br>| discrete |classification|<br>| continuous | regression |</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations:"></a>Notations:</h3><p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$<br><strong>Target</strong> (output variables) : $y ^ { ( i ) }$<br><strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$<br><strong>Training Set</strong>: $\left{(x^{(i)} , y^{(i)} ); i =<br>1, . . . , m\right}$<br>the <strong>Space</strong> of input values:  $\mathcal { X }$<br>the <strong>Space</strong> of output values: $\mathcal { Y }$<br><strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">target variables</th>
+<th style="text-align:center">problems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">discrete</td>
+<td style="text-align:center">classification</td>
+</tr>
+<tr>
+<td style="text-align:center">continuous</td>
+<td style="text-align:center">regression</td>
+</tr>
+</tbody>
+</table>
 <h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
 <p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$<br>here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
 <ol>
