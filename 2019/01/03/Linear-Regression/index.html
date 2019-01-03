@@ -319,6 +319,10 @@
 </ol>
 <p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
 <p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
+<ol start="2">
+<li>Gradient Descent</li>
+</ol>
+<p>Q: How to minimize $J ( \theta )$ ?<br>A: <strong>gradient descent</strong>[^footnote]<br>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.<br>For Linear Regression:<br>\begin{align<em>} \text{repeat until convergence: } \lbrace &amp; \newline \theta_0 := &amp; \theta_0 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}(h_\theta(x_{i}) - y_{i}) \newline \theta_1 := &amp; \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \newline \rbrace&amp; \end{align</em>}</p>
 <h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
 <ul>
 <li>Clustering</li>
@@ -328,6 +332,7 @@
 <li>CS229 Machine Learning </li>
 <li>Coursera Machine Learning by Andrew Ng</li>
 </ol>
+<p>[^footnote]: This update is <strong><em>simultaneously</em></strong> performed for all values of $j = 0, . . . , n$.</p>
 
       
     </div>
