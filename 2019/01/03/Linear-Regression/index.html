@@ -271,7 +271,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Machine-Learning"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Supervised-learning"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Notations"><span class="toc-text">1.1 Notations:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Linear-Regression"><span class="toc-text">1.2 Linear Regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Unsupervised-learning"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">1.1 Notations:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">1.2 Linear Regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">参考：</span></a></li></ol>
     </div>
   </div>
 
@@ -279,21 +279,31 @@
 
     <div class="post-content">
       
-        <!-- TOC -->    
-<a id="more"></a>
+        <p>&lt;!-- TOC --&gt;<br>
+&lt;!-- more --&gt;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-<h1 id="What-is-Machine-Learning"><a href="#What-is-Machine-Learning" class="headerlink" title="What is Machine Learning?"></a>What is Machine Learning?</h1><p>Two definitions of Machine Learning are offered. Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition.</p>
-<p>Tom Mitchell provides a more modern definition: “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”</p>
+</p>
+<h1>What is Machine Learning?</h1>
+<p>Two definitions of Machine Learning are offered. Arthur Samuel described it as: &quot;the field of study that gives computers the ability to learn without being explicitly programmed.&quot; This is an older, informal definition.</p>
+<p>Tom Mitchell provides a more modern definition: &quot;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&quot;</p>
 <p>Example: playing checkers.</p>
 <p>E = the experience of playing many games of checkers</p>
 <p>T = the task of playing checkers.</p>
 <p>P = the probability that the program will win the next game.</p>
 <p>In general, any machine learning problem can be assigned to one of two broad classifications:</p>
 <p><strong>Supervised learning</strong> and <strong>Unsupervised learning</strong>.</p>
-<h2 id="1-Supervised-learning"><a href="#1-Supervised-learning" class="headerlink" title="1. Supervised learning"></a>1. Supervised learning</h2><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<h3 id="1-1-Notations"><a href="#1-1-Notations" class="headerlink" title="1.1 Notations:"></a>1.1 Notations:</h3><p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$<br><strong>Target</strong> (output variables) : $y ^ { ( i ) }$<br><strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$<br><strong>Training Set</strong>: $\{(x^{(i)} , y^{(i)}); i =<br>1,\dots, m\}$<br>the <strong>Space</strong> of input values:  $\mathcal { X }$<br>the <strong>Space</strong> of output values: $\mathcal { Y }$<br><strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$</p>
+<h2>1. Supervised learning</h2>
+<p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
+<h3>1.1 Notations:</h3>
+<p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$
+<strong>Target</strong> (output variables) : $y ^ { ( i ) }$
+<strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$
+<strong>Training Set</strong>: $\{(x^{(i)} , y^{(i)}); i =
+1,\dots, m\}$
+the <strong>Space</strong> of input values:  $\mathcal { X }$
+the <strong>Space</strong> of output values: $\mathcal { Y }$
+<strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$</p>
 <table>
 <thead>
 <tr>
@@ -312,24 +322,34 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1-2-Linear-Regression"><a href="#1-2-Linear-Regression" class="headerlink" title="1.2 Linear Regression"></a>1.2 Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
-<p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$<br>here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
+<h3>1.2 Linear Regression</h3>
+<p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$
+where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the
+space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
+<p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$
+here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
 <ol>
 <li>Cost Function</li>
 </ol>
-<p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
+<p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?
+A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
 <p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
 <ol start="2">
 <li>Gradient Descent</li>
 </ol>
-<p>Q: How to minimize $J ( \theta )$ ?<br>A: <strong>gradient descent</strong>[^footnote]<br>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.</p>
-<h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
+<p>Q: How to minimize $J ( \theta )$ ?
+A: <strong>gradient descent</strong>[^footnote]
+$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$
+Here, $\alpha$ is called <strong>learning rate</strong>.</p>
+<h2>2. Unsupervised learning</h2>
+<p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like.</p>
 <ul>
 <li>Clustering</li>
 <li>Non-clustering</li>
 </ul>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li>CS229 Machine Learning </li>
+<h1>参考：</h1>
+<ol>
+<li>CS229 Machine Learning</li>
 <li>Coursera Machine Learning by Andrew Ng</li>
 </ol>
 <p>[^footnote]: This update is <strong><em>simultaneously</em></strong> performed for all values of $j = 0, . . . , n$.</p>
