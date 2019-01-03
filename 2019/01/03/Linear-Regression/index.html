@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="Datawhale 算法梳理第3期 02号">
+  <meta name="description" content="1. 线性回归">
 
 
 
 
-  <meta name="keywords" content="机器学习, Org-mode实践, Rookie">
+  <meta name="keywords" content="机器学习, Rookie">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://zhangydong.top/2019/01/03/Datawhale/">
+<link rel="canonical" href="https://zhangydong.top/2019/01/03/Linear-Regression/">
 
 
 
@@ -108,7 +108,7 @@
   window.config = {"leancloud":{"app_id":"3wSIBDvbuwPeOwNdvk5zjLHf-gzGzoHsz","app_key":"6GVMLrROY8HRyVW4odP5iKWI"},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> Datawhale 算法梳理第3期 02号 - Rookie </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 1. 线性回归 - Rookie </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -242,7 +242,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          Datawhale 算法梳理第3期 02号
+          1. 线性回归
         
       </h1>
 
@@ -259,7 +259,7 @@
           </span>
         
         
-        <span class="post-visits" data-url="/2019/01/03/Datawhale/" data-title="Datawhale 算法梳理第3期 02号">
+        <span class="post-visits" data-url="/2019/01/03/Linear-Regression/" data-title="1. 线性回归">
           阅读次数 0
         </span>
         
@@ -271,7 +271,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用："><span class="toc-text">工具使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-GTD-管理"><span class="toc-text">1. GTD 管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-文字编辑"><span class="toc-text">2. 文字编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数学公式"><span class="toc-text">3. 数学公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-协同评价"><span class="toc-text">4. 协同评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Machine-Learning"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Supervised-learning"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations"><span class="toc-text">Notations:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-Regression"><span class="toc-text">Linear Regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Unsupervised-learning"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
     </div>
   </div>
 
@@ -279,38 +279,49 @@
 
     <div class="post-content">
       
-        <!-- TOC -->  
-<p>不知道 $\LaTeX$ 能不能加载出来 <a href="https://www.v2ex.com/t/162951" target="_blank" rel="noopener">–&gt;.&lt;–</a><br><a id="more"></a><br>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-</p>
-<h1 id="工具使用："><a href="#工具使用：" class="headerlink" title="工具使用："></a>工具使用：</h1><h2 id="1-GTD-管理"><a href="#1-GTD-管理" class="headerlink" title="1. GTD 管理"></a>1. <a href="https://en.wikipedia.org/wiki/Getting_Things_Done" target="_blank" rel="noopener">GTD</a> 管理</h2><table>
+        <h1 id="What-is-Machine-Learning"><a href="#What-is-Machine-Learning" class="headerlink" title="What is Machine Learning?"></a>What is Machine Learning?</h1><p>Two definitions of Machine Learning are offered. Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition.</p>
+<p>Tom Mitchell provides a more modern definition: “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”</p>
+<p>Example: playing checkers.</p>
+<p>E = the experience of playing many games of checkers</p>
+<p>T = the task of playing checkers.</p>
+<p>P = the probability that the program will win the next game.</p>
+<p>In general, any machine learning problem can be assigned to one of two broad classifications:</p>
+<p><strong>Supervised learning</strong> and <strong>Unsupervised learning</strong>.</p>
+<h2 id="1-Supervised-learning"><a href="#1-Supervised-learning" class="headerlink" title="1. Supervised learning"></a>1. Supervised learning</h2><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations:"></a>Notations:</h3><p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$<br><strong>Target</strong> (output variables) : $y ^ { ( i ) }$<br><strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$<br><strong>Training Set</strong>: $\left{ \left( x ^ { ( i ) } , y ^ { ( i ) } \right) ; i = 1 , \ldots , m \right}$<br>the <strong>Space</strong> of input values:  $\mathcal { X }$<br>the <strong>Space</strong> of output values: $\mathcal { Y }$<br><strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<table>
 <thead>
 <tr>
-<th style="text-align:center"><a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 26.1</th>
-<th style="text-align:center"><a href="https://orgmode.org/" target="_blank" rel="noopener">Org-mode</a> 9.2</th>
+<th style="text-align:center">target variables</th>
+<th style="text-align:center">problems</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="https://www.gnu.org/software/emacs/images/emacs.png" alt="Emacs"></td>
-<td style="text-align:center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Org-mode-unicorn.svg/162px-Org-mode-unicorn.svg.png" alt="Org-mode"></td>
+<td style="text-align:center">discrete</td>
+<td style="text-align:center">classification</td>
+</tr>
+<tr>
+<td style="text-align:center">continuous</td>
+<td style="text-align:center">regression</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-文字编辑"><a href="#2-文字编辑" class="headerlink" title="2. 文字编辑"></a>2. 文字编辑</h2><ul>
-<li><img src="https://www.zybuluo.com/cmd/favicon.png" alt="Cmd Markdown 编辑器"> <a href="https://www.zybuluo.com/cmd/" target="_blank" rel="noopener">Cmd Markdown 编辑器</a></li>
-</ul>
-<h2 id="3-数学公式"><a href="#3-数学公式" class="headerlink" title="3. 数学公式"></a>3. 数学公式</h2><ul>
-<li><a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix</a></li>
-</ul>
-<h2 id="4-协同评价"><a href="#4-协同评价" class="headerlink" title="4. 协同评价"></a>4. 协同评价</h2><ul>
-<li><img src="https://assets-cdn.shimo.im/from_qbox/favicon.ico" alt="石墨文档"> <a href="https://shimo.im/dashboard/" target="_blank" rel="noopener">石墨文档</a></li>
+<h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong>) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
+<p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$<br>here $x _ { 0 } = 1$  <em>convention</em> (this is the <strong>intercept term</strong>), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
+<ol>
+<li>Cost Function</li>
+</ol>
+<p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
+<p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
+<h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
+<ul>
+<li>Clustering</li>
+<li>Non-clustering</li>
 </ul>
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li><a href="http://cs229.stanford.edu/syllabus.html" target="_blank" rel="noopener">CS229: Machine Learning</a></li>
-<li><p><a href="https://www.google.com.hk/webhp?ie=UTF-8&amp;gws_rd=cr&amp;rct=j" target="_blank" rel="noopener">Google Search</a></p>
-<pre><code>持续更新...................
-</code></pre></li>
+<li>CS229 Machine Learning </li>
+<li>Coursera Machine Learning by Andrew Ng</li>
 </ol>
 
       
@@ -333,23 +344,15 @@
             
               <a href="/tags/机器学习/">机器学习</a>
             
-              <a href="/tags/Org-mode实践/">Org-mode实践</a>
-            
           </div>
         
         
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/01/03/Linear-Regression/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">1. 线性回归</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2018/12/31/summary/">
-        <span class="next-text nav-default">回顾 2018</span>
+      <a class="next" href="/2019/01/03/Datawhale/">
+        <span class="next-text nav-default">Datawhale 算法梳理第3期 02号</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
