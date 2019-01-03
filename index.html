@@ -280,28 +280,16 @@
       
         
         
+          
+        
 
         
-          <p>&lt;!-- TOC --&gt;</p>
+          <!-- TOC -->
 <pre><code>2018年抑郁了一年，2月份复习跨考本校 CS，没成想记笔记爱上了LaTeX，一发不可收拾！最终放弃了考研，心里想得太多！
 </code></pre>
-<p>&lt;!-- more --&gt;</p>
-<p>列一下今年的书单：</p>
-<p>&lt;a id=&quot;org8cb362d&quot;&gt;&lt;/a&gt;</p>
-<h1>1. 上半年 Discrete Mathematics and Its Applications 7e</h1>
-<p>原本是为学习数据结构打基础，看了 3 个月，只看到了 Graph 部分。</p>
-<p>&lt;a id=&quot;orgdaccc2b&quot;&gt;&lt;/a&gt;</p>
-<h1>2. 下半年 Introduction to Algorithms 3e</h1>
-<p>看完了排序部分，不是很理解，分治思想和动态规划了解一点点。
-用 Python 实现的伪代码，现在白纸上画一下算法运行效果，然后在 Spyder 里实现一下。
-最先接触 Python 还是17年暑假北理工的中国大学 MOOC，一上来就是 turtle 库，看不懂遂放弃，12月份去看廖雪峰的Python教程，那时候流行的还是python2.x，18年暑假在edx上修了<a href="https://www.edx.org/course/introduction-to-computer-science-and-programming-using-python-0" target="_blank" rel="noopener">MIT6.001x</a>，跳过了OOP，感觉还是学到了很多，诸如黑盒白盒测试。</p>
-<p>&lt;a id=&quot;orgac0f7c4&quot;&gt;&lt;/a&gt;</p>
-<h1>3. 还有一本 C Primer Plus</h1>
-<p><a href="https://www.edx.org/es/course/cs50s-introduction-computer-science-harvardx-cs50x" target="_blank" rel="noopener">CS50</a> 里对C的学习从一个小工程开始，比打印一个Hello,World有趣多了，后来看C Primer Plus，在图书馆里用 iMac 上的 VScode + Xcode的gcc编译器算是基本看完，变量生命周期没有看，不过了解一点 Java，在 Java 语言里这个概念体现的比较多。</p>
-<p>学编程的初衷是 NLP，绕了一大圈还是回到了这里，10月份看吴恩达的Coursera<a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener">机器学习</a>，也是心急气躁，看了一半。</p>
-<p>以上书籍均可在 library genesis 找到电子版。</p>
-<p>2019 不知道怎么走下去，现在在改开题报告，秋招都没参加。。。</p>
-
+          <div class="read-more">
+            <a href="/2018/12/31/summary/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
@@ -350,83 +338,14 @@
       
         
         
+          
+        
 
         
-          <p>&lt;!-- TOC --&gt;<br>
-&lt;!-- more --&gt;
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-</p>
-<h1>What is Machine Learning?</h1>
-<p>Two definitions of Machine Learning are offered. Arthur Samuel described it as: &quot;the field of study that gives computers the ability to learn without being explicitly programmed.&quot; This is an older, informal definition.</p>
-<p>Tom Mitchell provides a more modern definition: &quot;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&quot;</p>
-<p>Example: playing checkers.</p>
-<p>E = the experience of playing many games of checkers</p>
-<p>T = the task of playing checkers.</p>
-<p>P = the probability that the program will win the next game.</p>
-<p>In general, any machine learning problem can be assigned to one of two broad classifications:</p>
-<p><strong>Supervised learning</strong> and <strong>Unsupervised learning</strong>.</p>
-<h2>1. Supervised learning</h2>
-<p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<h3>1.1 Notations:</h3>
-<p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$
-<strong>Target</strong> (output variables) : $y ^ { ( i ) }$
-<strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$
-<strong>Training Set</strong>: $\{(x^{(i)} , y^{(i)}); i =
-1,\dots, m\}$
-the <strong>Space</strong> of input values:  $\mathcal { X }$
-the <strong>Space</strong> of output values: $\mathcal { Y }$
-<strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">target variables</th>
-<th style="text-align:center">problems</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">discrete</td>
-<td style="text-align:center">classification</td>
-</tr>
-<tr>
-<td style="text-align:center">continuous</td>
-<td style="text-align:center">regression</td>
-</tr>
-</tbody>
-</table>
-<h3>1.2 Linear Regression</h3>
-<p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$
-where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the
-space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
-<p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$
-here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
-<ol>
-<li>Cost Function</li>
-</ol>
-<p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?
-A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
-<p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
-<ol start="2">
-<li>Gradient Descent</li>
-</ol>
-<p>Q: How to minimize $J ( \theta )$ ?
-A: <strong>gradient descent</strong>[^footnote]
-$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$
-Here, $\alpha$ is called <strong>learning rate</strong>.</p>
-<h2>2. Unsupervised learning</h2>
-<p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like.</p>
-<ul>
-<li>Clustering</li>
-<li>Non-clustering</li>
-</ul>
-<h1>参考：</h1>
-<ol>
-<li>CS229 Machine Learning</li>
-<li>Coursera Machine Learning by Andrew Ng</li>
-</ol>
-<p>[^footnote]: This update is <strong><em>simultaneously</em></strong> performed for all values of $j = 0, . . . , n$.</p>
-
+          <!-- TOC -->
+          <div class="read-more">
+            <a href="/2019/01/03/Linear-Regression/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
@@ -475,57 +394,18 @@ Here, $\alpha$ is called <strong>learning rate</strong>.</p>
       
         
         
+          
+        
 
         
-          <p>&lt;!-- TOC --&gt;<br>
-不知道 $\LaTeX$ 能不能加载出来 <a href="https://www.v2ex.com/t/162951" target="_blank" rel="noopener">--&gt;.&lt;--</a><br>
-&lt;!-- more --&gt;
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-</p>
-<h1>工具使用：</h1>
-<h2>1. <a href="https://en.wikipedia.org/wiki/Getting_Things_Done" target="_blank" rel="noopener">GTD</a> 管理</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 26.1</th>
-<th style="text-align:center"><a href="https://orgmode.org/" target="_blank" rel="noopener">Org-mode</a> 9.2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://www.gnu.org/software/emacs/images/emacs.png" alt="Emacs"></td>
-<td style="text-align:center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Org-mode-unicorn.svg/162px-Org-mode-unicorn.svg.png" alt="Org-mode"></td>
-</tr>
-</tbody>
-</table>
-<h2>2. 文字编辑</h2>
-<ul>
-<li><img src="https://www.zybuluo.com/cmd/favicon.png" alt="Cmd Markdown 编辑器"> <a href="https://www.zybuluo.com/cmd/" target="_blank" rel="noopener">Cmd Markdown 编辑器</a></li>
-</ul>
-<h2>3. 数学公式</h2>
-<ul>
-<li><a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix</a></li>
-</ul>
-<h2>4. 协同评价</h2>
-<ul>
-<li><img src="https://assets-cdn.shimo.im/from_qbox/favicon.ico" alt="石墨文档"> <a href="https://shimo.im/dashboard/" target="_blank" rel="noopener">石墨文档</a></li>
-</ul>
-<h1>参考：</h1>
-<ol>
-<li>
-<p><a href="http://cs229.stanford.edu/syllabus.html" target="_blank" rel="noopener">CS229: Machine Learning</a></p>
-</li>
-<li>
-<p><a href="https://www.google.com.hk/webhp?ie=UTF-8&amp;gws_rd=cr&amp;rct=j" target="_blank" rel="noopener">Google Search</a></p>
-<pre><code> 持续更新...................
-</code></pre>
-</li>
-</ol>
-
+          <!-- TOC -->  
+<p>不知道 $\LaTeX$ 能不能加载出来 <a href="https://www.v2ex.com/t/162951" target="_blank" rel="noopener">–&gt;.&lt;–</a><br>
+          <div class="read-more">
+            <a href="/2019/01/03/Datawhale/" class="read-more-link">阅读更多</a>
+          </div>
         
       
-    </div>
+    </p></div>
 
     
 
