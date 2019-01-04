@@ -391,19 +391,15 @@
 </table>
 <h4 id="4-Unerfitting-and-Overfitting"><a href="#4-Unerfitting-and-Overfitting" class="headerlink" title="4. Unerfitting and Overfitting"></a>4. Unerfitting and Overfitting</h4><p><strong>Underfitting</strong>, or <em>high bias</em>, is when the form of our hypothesis function $h$ maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.<br>At the other extreme, <strong>overfitting</strong>, or <em>high variance</em>, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</p>
 <p>This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:</p>
-<ul>
-<li><p>Reduce the number of features:</p>
+<p>4.1. Reduce the number of features:</p>
 <ul>
 <li>Manually select which features to keep.</li>
 <li>Use a model selection algorithm (studied later in the course).</li>
 </ul>
-</li>
-<li><p>Regularization</p>
+<p>4.2. Regularization</p>
 <ul>
 <li>Keep all the features, but reduce the magnitude of parameters $\theta_j$.</li>
 <li>Regularization works well when we have a lot of slightly useful features.</li>
-</ul>
-</li>
 </ul>
 <h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
 <ul>
