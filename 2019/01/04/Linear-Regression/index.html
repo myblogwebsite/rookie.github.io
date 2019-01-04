@@ -271,7 +271,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Machine-Learning"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Supervised-learning"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-Regression"><span class="toc-text">Linear Regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Unsupervised-learning"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Machine-Learning"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Supervised-learning"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-Regression"><span class="toc-text">Linear Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Cost-Function"><span class="toc-text">1. Cost Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Gradient-Descent"><span class="toc-text">2. Gradient Descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Normal-Equation"><span class="toc-text">3. Normal Equation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Unsupervised-learning"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
     </div>
   </div>
 
@@ -351,26 +351,18 @@
 </table>
 <h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
 <p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$<br>here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
-<ol>
-<li>Cost Function</li>
-</ol>
-<p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
+<h4 id="1-Cost-Function"><a href="#1-Cost-Function" class="headerlink" title="1. Cost Function"></a>1. Cost Function</h4><p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
 <p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
 <p>Q: How to minimize $J ( \theta )$ ?<br>A: <strong>gradient descent</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, <strong>normal equation</strong> </p>
 <p><a href="https://www.npmjs.com/package/hexo-footnotes" target="_blank" rel="noopener">脚注</a> ?</p>
-<ol start="2">
-<li>Gradient Descent<br>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.</li>
-</ol>
+<h4 id="2-Gradient-Descent"><a href="#2-Gradient-Descent" class="headerlink" title="2. Gradient Descent"></a>2. Gradient Descent</h4><p>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.</p>
 <p>2.1. for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:<br>$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }$$<br>also called <strong>Widrow-Holf</strong> learning rule.<br>2.2. for a training set $( m &gt; 1 )$:</p>
 <ul>
 <li><strong>batch gradient descent</strong>   <img src="/2019/01/04/Linear-Regression/bgd.PNG" title="BGD"></li>
 <li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )      <img src="/2019/01/04/Linear-Regression/sgd.PNG" title="SGD">
 </li>
 </ul>
-<ol start="3">
-<li>Normal Equation</li>
-</ol>
-<p>In the “Normal Equation” method, we will minimize $J$ by explicitly taking its derivatives with respect to the $θ_j$ ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:<br>$$\theta = \left( X ^ { T } X \right) ^ { - 1 } X ^ { T } y$$</p>
+<h4 id="3-Normal-Equation"><a href="#3-Normal-Equation" class="headerlink" title="3. Normal Equation"></a>3. Normal Equation</h4><p>In the “Normal Equation” method, we will minimize $J$ by explicitly taking its derivatives with respect to the $θ_j$ ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:<br>$$\theta = \left( X ^ { T } X \right) ^ { - 1 } X ^ { T } y$$</p>
 <h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
 <ul>
 <li>Clustering</li>
