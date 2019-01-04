@@ -361,12 +361,13 @@
 <ol start="2">
 <li>Gradient Descent<br>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.</li>
 </ol>
-<p>2.1. for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:<br>$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }$$<br>also called <strong>Widrow-Holf</strong> learning rule.<br>2.2 for a training set $( m &gt; 1 )$:</p>
-<pre><code>- **batch gradient descent** 
-{% asset_img bgd.PNG BGD %}
-- **stochastic gradient descent** ( also **incremental gradient descent** )    
-{% asset_img sgd.PNG SGD %}
-</code></pre><h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
+<p>2.1. for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:<br>$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }$$<br>also called <strong>Widrow-Holf</strong> learning rule.<br>2.2. for a training set $( m &gt; 1 )$:</p>
+<ul>
+<li><strong>batch gradient descent</strong>   <img src="/2019/01/04/Linear-Regression/bgd.PNG" title="BGD"></li>
+<li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )      <img src="/2019/01/04/Linear-Regression/sgd.PNG" title="SGD">
+</li>
+</ul>
+<h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
 <ul>
 <li>Clustering</li>
 <li>Non-clustering</li>
