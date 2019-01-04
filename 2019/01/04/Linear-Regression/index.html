@@ -357,19 +357,21 @@
 <p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
 <p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
 <p>Q: How to minimize $J ( \theta )$ ?<br>A: <strong>gradient descent</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, <strong>normal equation</strong> </p>
-<p><a href="https://www.npmjs.com/package/hexo-footnotes" target="_blank" rel="noopener">脚注</a> ?</p>
+<p><a href="https://www.npmjs.com/package/hexo-footnotes" target="_blank" rel="noopener">脚注</a>？</p>
 <ol start="2">
 <li>Gradient Descent<br>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.</li>
 </ol>
+<hr>
 <ul>
 <li>for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:<br>$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }$$<br>also called <strong>Widrow-Holf</strong> learning rule.</li>
 <li>for a training set $( m &gt; 1 )$:<ul>
-<li><strong>batch gradient descent</strong><br>Repeat until convergence ${$<br>$\theta _ { j } : = \theta _ { j } + \alpha \sum _ { i = 1 } ^ { m } \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j )$<br>$}$</li>
-<li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )<br>Loop ${$<br>for $i = 1$ to $\mathrm { m } , {$<br>$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ) .$<br>$}$<br>$}$</li>
+<li><strong>batch gradient descent</strong><br>Repeat until convergence ${$<br>&emsp;&emsp;$\theta _ { j } : = \theta _ { j } + \alpha \sum _ { i = 1 } ^ { m } \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ).$<br>$}$</li>
+<li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )<br>Loop ${$<br>&emsp;&emsp;for $i = 1$ to $\mathrm { m } , {$<br>&emsp;&emsp;&emsp;&emsp;$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ) .$<br>&emsp;&emsp;$}$<br>$}$</li>
 </ul>
 </li>
 </ul>
-<p><a href="https://www.npmjs.com/package/hexo-footnotes" target="_blank" rel="noopener">如何缩进？</a></p>
+<p><a href="https://segmentfault.com/q/1010000000125730" target="_blank" rel="noopener">如何缩进？</a></p>
+<hr>
 <h2 id="2-Unsupervised-learning"><a href="#2-Unsupervised-learning" class="headerlink" title="2. Unsupervised learning"></a>2. Unsupervised learning</h2><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. </p>
 <ul>
 <li>Clustering</li>
