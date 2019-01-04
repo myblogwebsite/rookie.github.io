@@ -326,8 +326,8 @@
 <ul>
 <li>for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:<br>$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }$$<br>also called <strong>Widrow-Holf</strong> learning rule.</li>
 <li>for a training set $( m &gt; 1 )$:<ul>
-<li><strong>batch gradient descent</strong><br>Repeat until convergence ${$<br>\qquad $\theta _ { j } : = \theta _ { j } + \alpha \sum _ { i = 1 } ^ { m } \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ).$<br>$}$</li>
-<li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )<br>Loop ${$<br>\qquad for $i = 1$ to $\mathrm { m } , {$<br>\qquad\qquad $\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ) .$<br>\qquad $}$<br>$}$</li>
+<li><strong>batch gradient descent</strong><br>Repeat until convergence ${$<br>$\quad$$\theta _ { j } : = \theta _ { j } + \alpha \sum _ { i = 1 } ^ { m } \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ).$<br>$}$</li>
+<li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )<br>Loop ${$<br>$\quad$for $i = 1$ to $\mathrm { m } , {$<br>$\quad$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) } \quad$ (for every $j ) .$<br>$\quad$$}$<br>$}$</li>
 </ul>
 </li>
 </ul>
