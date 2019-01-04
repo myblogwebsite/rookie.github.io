@@ -271,7 +271,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Machine-Learning"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Supervised-learning"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Notations"><span class="toc-text">1.1 Notations:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Linear-Regression"><span class="toc-text">1.2 Linear Regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Unsupervised-learning"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Machine-Learning"><span class="toc-text">What is Machine Learning?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Supervised-learning"><span class="toc-text">1. Supervised learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-Regression"><span class="toc-text">Linear Regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Unsupervised-learning"><span class="toc-text">2. Unsupervised learning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
     </div>
   </div>
 
@@ -293,7 +293,44 @@
 <p>In general, any machine learning problem can be assigned to one of two broad classifications:</p>
 <p><strong>Supervised learning</strong> and <strong>Unsupervised learning</strong>.</p>
 <h2 id="1-Supervised-learning"><a href="#1-Supervised-learning" class="headerlink" title="1. Supervised learning"></a>1. Supervised learning</h2><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<h3 id="1-1-Notations"><a href="#1-1-Notations" class="headerlink" title="1.1 Notations:"></a>1.1 Notations:</h3><p><strong>Features</strong> (input variables) : $x ^ { ( i ) }$<br><strong>Target</strong> (output variables) : $y ^ { ( i ) }$<br><strong>Training Example</strong>: $\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$<br><strong>Training Set</strong>: $\{(x^{(i)} , y^{(i)}); i =<br>1,\dots, m\}$<br>the <strong>Space</strong> of input values:  $\mathcal { X }$<br>the <strong>Space</strong> of output values: $\mathcal { Y }$<br><strong>Hypothesis</strong>: function $h : \mathcal { X } \mapsto \mathcal { Y }$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">terminology</th>
+<th style="text-align:center">notations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Features</strong> (input variables)</td>
+<td style="text-align:center">$x ^ { ( i ) }$</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Target</strong> (output variables)</td>
+<td style="text-align:center">$y ^ { ( i ) }$</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Training Example</strong></td>
+<td style="text-align:center">$\left( x ^ { ( i ) } , y ^ { ( i ) } \right)$</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Training Set</strong></td>
+<td style="text-align:center">${(x^{(i)} , y^{(i)} ); i = 1, \dots, m}$</td>
+</tr>
+<tr>
+<td style="text-align:left">the <strong>Space</strong> of input values</td>
+<td style="text-align:center">$\mathcal { X }$</td>
+</tr>
+<tr>
+<td style="text-align:left">the <strong>Space</strong> of output values</td>
+<td style="text-align:center">$\mathcal { Y }$</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Hypothesis</strong></td>
+<td style="text-align:center">function $h : \mathcal { X } \mapsto \mathcal { Y }$</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -312,7 +349,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1-2-Linear-Regression"><a href="#1-2-Linear-Regression" class="headerlink" title="1.2 Linear Regression"></a>1.2 Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
+<h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
 <p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$<br>here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
 <ol>
 <li>Cost Function</li>
