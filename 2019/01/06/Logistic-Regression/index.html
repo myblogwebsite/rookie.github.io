@@ -312,46 +312,8 @@
 <p>Train a logistic regression classifier $h_\theta(x)$ for each class￼ to predict the probability that ￼$￼y = i$￼.</p>
 <p>To make a prediction on a new $x$, pick the class ￼that maximizes $ h_\theta (x)$.</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_iris_logistic.html#sphx-glr-auto-examples-linear-model-plot-iris-logistic-py" target="_blank" rel="noopener">Logistic Regression 3-class Classifier</a> 鸢尾花数据集（iris dataset）supported by <a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a>.</p>
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LogisticRegression
-from sklearn import datasets
-
-# import some data to play with
-iris = datasets.load_iris()
-X = iris.data[:, :2]  # we only take the first two features.
-Y = iris.target
-
-logreg = LogisticRegression(C=1e5, solver=&apos;lbfgs&apos;, multi_class=&apos;multinomial&apos;)
-
-# Create an instance of Logistic Regression Classifier and fit the data.
-logreg.fit(X, Y)
-
-# Plot the decision boundary. For that, we will assign a color to each
-# point in the mesh [x_min, x_max]x[y_min, y_max].
-x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
-y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
-h = .02  # step size in the mesh
-xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-Z = logreg.predict(np.c_[xx.ravel(), yy.ravel()])
-
-# Put the result into a color plot
-Z = Z.reshape(xx.shape)
-plt.figure(1, figsize=(4, 3))
-plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Paired)
-
-# Plot also the training points
-plt.scatter(X[:, 0], X[:, 1], c=Y, edgecolors=&apos;k&apos;, cmap=plt.cm.Paired)
-plt.xlabel(&apos;Sepal length&apos;)
-plt.ylabel(&apos;Sepal width&apos;)
-
-plt.xlim(xx.min(), xx.max())
-plt.ylim(yy.min(), yy.max())
-plt.xticks(())
-plt.yticks(())
-
-plt.show()
-</code></pre><img src="/2019/01/06/Logistic-Regression/logistic.PNG">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line">from sklearn import datasets</span><br><span class="line"></span><br><span class="line"># import some data to play with</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">X = iris.data[:, :2]  # we only take the first two features.</span><br><span class="line">Y = iris.target</span><br><span class="line"></span><br><span class="line">logreg = LogisticRegression(C=1e5, solver=&apos;lbfgs&apos;, multi_class=&apos;multinomial&apos;)</span><br><span class="line"></span><br><span class="line"># Create an instance of Logistic Regression Classifier and fit the data.</span><br><span class="line">logreg.fit(X, Y)</span><br><span class="line"></span><br><span class="line"># Plot the decision boundary. For that, we will assign a color to each</span><br><span class="line"># point in the mesh [x_min, x_max]x[y_min, y_max].</span><br><span class="line">x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5</span><br><span class="line">y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5</span><br><span class="line">h = .02  # step size in the mesh</span><br><span class="line">xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span><br><span class="line">Z = logreg.predict(np.c_[xx.ravel(), yy.ravel()])</span><br><span class="line"></span><br><span class="line"># Put the result into a color plot</span><br><span class="line">Z = Z.reshape(xx.shape)</span><br><span class="line">plt.figure(1, figsize=(4, 3))</span><br><span class="line">plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Paired)</span><br><span class="line"></span><br><span class="line"># Plot also the training points</span><br><span class="line">plt.scatter(X[:, 0], X[:, 1], c=Y, edgecolors=&apos;k&apos;, cmap=plt.cm.Paired)</span><br><span class="line">plt.xlabel(&apos;Sepal length&apos;)</span><br><span class="line">plt.ylabel(&apos;Sepal width&apos;)</span><br><span class="line"></span><br><span class="line">plt.xlim(xx.min(), xx.max())</span><br><span class="line">plt.ylim(yy.min(), yy.max())</span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.yticks(())</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<img src="/2019/01/06/Logistic-Regression/logistic.PNG">
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="http://courses.washington.edu/css490/2012.Winter/lecture_slides/05b_logistic_regression.pdf" target="_blank" rel="noopener">css490</a> p20</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
