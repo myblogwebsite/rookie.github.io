@@ -271,7 +271,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Classification"><span class="toc-text">Classification</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-binary-classification"><span class="toc-text">1. binary classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-logistic-regression"><span class="toc-text">2. logistic regression</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Cost-Function"><span class="toc-text">2.1 Cost Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Gradient-Descent"><span class="toc-text">2.2 Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-multiclass-classification-one-vs-all"><span class="toc-text">2. multiclass classification: one-vs-all</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Classification"><span class="toc-text">Classification</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-binary-classification"><span class="toc-text">1. binary classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-logistic-regression"><span class="toc-text">2. logistic regression</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Cost-Function"><span class="toc-text">2.1 Cost Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Gradient-Descent"><span class="toc-text">2.2 Gradient Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Pros-and-Cons1"><span class="toc-text">2.3 Pros and Cons1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-multiclass-classification-one-vs-all"><span class="toc-text">2. multiclass classification: one-vs-all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -293,10 +293,65 @@
 <p>Note that writing the cost function in this way guarantees that $J(θ)$ is convex for logistic regression.</p>
 <h3 id="2-2-Gradient-Descent"><a href="#2-2-Gradient-Descent" class="headerlink" title="2.2 Gradient Descent"></a>2.2 Gradient Descent</h3><img src="/2019/01/06/Logistic-Regression/4.PNG">
 <p>or<br><img src="/2019/01/06/Logistic-Regression/5.PNG"></p>
-<h2 id="2-multiclass-classification-one-vs-all"><a href="#2-multiclass-classification-one-vs-all" class="headerlink" title="2. multiclass classification: one-vs-all"></a>2. multiclass classification: one-vs-all</h2><img src="/2019/01/06/Logistic-Regression/6.PNG">
-<p>Train a logistic regression classifier $h_\theta(x)$ for each class￼ to predict the probability that ￼$￼y = i$￼.</p>
+<h3 id="2-3-Pros-and-Cons1"><a href="#2-3-Pros-and-Cons1" class="headerlink" title="2.3 Pros and Cons1"></a>2.3 Pros and Cons<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h3><p>Advantages:</p>
+<ul>
+<li>Makes no assumptions about distributions of classes in feature space</li>
+<li>Easily extended to multiple classes (multinomial regression)</li>
+<li>Natural probabilistic view of class predictions Natural probabilistic view of class predictions</li>
+<li>Quick to train</li>
+<li>Very fast at classifying unknown records</li>
+<li>Good accuracy for many simple data sets</li>
+<li>Resistant to overfitting</li>
+<li>Can interpret model coefficients as indicators of feature importance </li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Linear decision boundary<h2 id="2-multiclass-classification-one-vs-all"><a href="#2-multiclass-classification-one-vs-all" class="headerlink" title="2. multiclass classification: one-vs-all"></a>2. multiclass classification: one-vs-all</h2><img src="/2019/01/06/Logistic-Regression/6.PNG">
+Train a logistic regression classifier $h_\theta(x)$ for each class￼ to predict the probability that ￼$￼y = i$￼.</li>
+</ul>
 <p>To make a prediction on a new $x$, pick the class ￼that maximizes $ h_\theta (x)$.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_iris_logistic.html#sphx-glr-auto-examples-linear-model-plot-iris-logistic-py" target="_blank" rel="noopener">Logistic Regression 3-class Classifier</a> 鸢尾花数据集（iris dataset）supported by <a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a>.</p>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from sklearn import datasets
 
+# import some data to play with
+iris = datasets.load_iris()
+X = iris.data[:, :2]  # we only take the first two features.
+Y = iris.target
+
+logreg = LogisticRegression(C=1e5, solver=&apos;lbfgs&apos;, multi_class=&apos;multinomial&apos;)
+
+# Create an instance of Logistic Regression Classifier and fit the data.
+logreg.fit(X, Y)
+
+# Plot the decision boundary. For that, we will assign a color to each
+# point in the mesh [x_min, x_max]x[y_min, y_max].
+x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
+y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
+h = .02  # step size in the mesh
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+Z = logreg.predict(np.c_[xx.ravel(), yy.ravel()])
+
+# Put the result into a color plot
+Z = Z.reshape(xx.shape)
+plt.figure(1, figsize=(4, 3))
+plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Paired)
+
+# Plot also the training points
+plt.scatter(X[:, 0], X[:, 1], c=Y, edgecolors=&apos;k&apos;, cmap=plt.cm.Paired)
+plt.xlabel(&apos;Sepal length&apos;)
+plt.ylabel(&apos;Sepal width&apos;)
+
+plt.xlim(xx.min(), xx.max())
+plt.ylim(yy.min(), yy.max())
+plt.xticks(())
+plt.yticks(())
+
+plt.show()
+</code></pre><img src="/2019/01/06/Logistic-Regression/logistic.PNG">
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="http://courses.washington.edu/css490/2012.Winter/lecture_slides/05b_logistic_regression.pdf" target="_blank" rel="noopener">css490</a> p20</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
 
