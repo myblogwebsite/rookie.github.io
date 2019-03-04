@@ -294,6 +294,7 @@
 <p>In general, any machine learning problem can be assigned to one of two broad classifications:</p>
 <p><strong>Supervised learning</strong> and <strong>Unsupervised learning</strong>.</p>
 <h2 id="1-Supervised-learning"><a href="#1-Supervised-learning" class="headerlink" title="1. Supervised learning"></a>1. Supervised learning</h2><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -332,6 +333,8 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -350,20 +353,22 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><p>$$h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }$$<br>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
-<p>$$h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x$$<br>here $x _ { 0 } = 1$  <em>convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
+</div>
+<h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><script type="math/tex; mode=display">h _ { \theta } ( x ) = \theta _ { 0 } + \theta _ { 1 } x _ { 1 } + \theta _ { 2 } x _ { 2 }</script><p>where $\theta _ { i }$ are the <strong>parameters</strong> ( also called <strong>weights</strong> ) parameterizing the<br>space of linear functions mapping from $\mathcal { X }$ to $\mathcal { Y }$.</p>
+<script type="math/tex; mode=display">h ( x ) = \sum _ { i = 0 } ^ { n } \theta _ { i } x _ { i } = \theta ^ { T } x</script><p>here $x <em> { 0 } = 1$  _convention</em> ( this is the <strong>intercept term</strong> ), $\theta$ and $x$ are vectors, and $n$ is the number of input variables ( not counting $x_0$ ).</p>
 <h4 id="1-Cost-Function"><a href="#1-Cost-Function" class="headerlink" title="1. Cost Function"></a>1. Cost Function</h4><p>Q: Given a training set, how do we pick, or learn, the parameters $\theta$ ?<br>A: To make $h ( x )$ close to $y$, at least for the training examples we have.</p>
-<p>$$J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }$$</p>
-<p>Q: How to minimize $J ( \theta )$ ?<br>A: <strong>gradient descent</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, <strong>normal equation</strong> </p>
+<script type="math/tex; mode=display">J ( \theta ) = \frac { 1 } { 2 } \sum _ { i = 1 } ^ { m } \left( h _ { \theta } \left( x ^ { ( i ) } \right) - y ^ { ( i ) } \right) ^ { 2 }</script><p>Q: How to minimize $J ( \theta )$ ?<br>A: <strong>gradient descent</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, <strong>normal equation</strong> </p>
 <p><a href="https://www.npmjs.com/package/hexo-footnotes" target="_blank" rel="noopener">脚注</a> ?</p>
-<h4 id="2-Gradient-Descent"><a href="#2-Gradient-Descent" class="headerlink" title="2. Gradient Descent"></a>2. Gradient Descent</h4><p>$$\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )$$<br>Here, $\alpha$ is called <strong>learning rate</strong>.</p>
-<p>2.1. for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:<br>$$\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }$$<br>also called <strong>Widrow-Holf</strong> learning rule.<br>2.2. for a training set $( m &gt; 1 )$:</p>
+<h4 id="2-Gradient-Descent"><a href="#2-Gradient-Descent" class="headerlink" title="2. Gradient Descent"></a>2. Gradient Descent</h4><script type="math/tex; mode=display">\theta _ { j } : = \theta _ { j } - \alpha \frac { \partial } { \partial \theta _ { j } } J ( \theta )</script><p>Here, $\alpha$ is called <strong>learning rate</strong>.</p>
+<p>2.1. for a single training example:<br><strong>LMS</strong> (least mean squares) update rule:</p>
+<script type="math/tex; mode=display">\theta _ { j } : = \theta _ { j } + \alpha \left( y ^ { ( i ) } - h _ { \theta } \left( x ^ { ( i ) } \right) \right) x _ { j } ^ { ( i ) }</script><p>also called <strong>Widrow-Holf</strong> learning rule.<br>2.2. for a training set $( m &gt; 1 )$:</p>
 <ul>
 <li><strong>batch gradient descent</strong>   <img src="/2019/01/04/Linear-Regression/bgd.PNG" title="BGD"></li>
 <li><strong>stochastic gradient descent</strong> ( also <strong>incremental gradient descent</strong> )      <img src="/2019/01/04/Linear-Regression/sgd.PNG" title="SGD">
 </li>
 </ul>
-<h4 id="3-Normal-Equation"><a href="#3-Normal-Equation" class="headerlink" title="3. Normal Equation"></a>3. Normal Equation</h4><p>In the “Normal Equation” method, we will minimize $J$ by explicitly taking its derivatives with respect to the $θ_j$ ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:<br>$$\theta = \left( X ^ { T } X \right) ^ { - 1 } X ^ { T } y$$</p>
+<h4 id="3-Normal-Equation"><a href="#3-Normal-Equation" class="headerlink" title="3. Normal Equation"></a>3. Normal Equation</h4><p>In the “Normal Equation” method, we will minimize $J$ by explicitly taking its derivatives with respect to the $θ_j$ ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:</p>
+<script type="math/tex; mode=display">\theta = \left( X ^ { T } X \right) ^ { - 1 } X ^ { T } y</script><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -390,6 +395,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="4-Unerfitting-and-Overfitting"><a href="#4-Unerfitting-and-Overfitting" class="headerlink" title="4. Unerfitting and Overfitting"></a>4. Unerfitting and Overfitting</h4><p><strong>Underfitting</strong>, or <em>high bias</em>, is when the form of our hypothesis function $h$ maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.<br>At the other extreme, <strong>overfitting</strong>, or <em>high variance</em>, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</p>
 <p>This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:</p>
 <p>4.1. Reduce the number of features:</p>
