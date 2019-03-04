@@ -296,11 +296,11 @@
 <li>调和级数：$$<br>T(n)=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\ldots+\frac{1}{n}=\Theta(\log n)<br>$$</li>
 <li>对数级数：$$<br>\log 1+\log 2+\log 3+\log 4+\ldots+\log n=\log (n !)=\Theta(n \log n)<br>$$</li>
 </ol>
-<h2 id="主方法2"><a href="#主方法2" class="headerlink" title="主方法2"></a>主方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h2><p>$$<br>T(n)=a T(n / b)+f(n)<br>$$其中$a \geq 1, b&gt;1, n$是非负整数。</p>
+<h2 id="主方法2"><a href="#主方法2" class="headerlink" title="主方法2"></a>主方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h2><p>对于递推式$$<br>T(n)=a T(n / b)+f(n)<br>$$其中$a \geq 1, b&gt;1, n$是非负整数。</p>
 <ol>
-<li>如果存在常数$\epsilon&gt;0$，满足$f(n)=O\left(n^{\log _{b} a-\epsilon}\right)$，那么$T(n)=\Theta\left(n^{\log _{b} a}\right)<br>$</li>
-<li>如果$<br>f(n)=\Theta\left(n^{\log _{b} a}\right)<br>$，那么$<br>T(n)=\Theta\left(n^{\log _{b} a} \lg n\right)<br>$</li>
-<li>如果存在常数$\epsilon&gt;0, f(n)=\Omega\left(n^{\log _{b} a+\epsilon}\right)<br>$成立，且存在常数$c&lt;1$，对足够大的$n$，有$<br>a f(n / b) \leq c f(n)<br>$成立，那么$T(n)=\Theta(f(n))$</li>
+<li>如果存在常数$\epsilon&gt;0$，满足$$f(n)=O\left(n^{\log _{b} a-\epsilon}\right)$$，那么$$T(n)=\Theta\left(n^{\log _{b} a}\right)$$</li>
+<li>如果$$f(n)=\Theta\left(n^{\log _{b} a}\right)$$，那么$$T(n)=\Theta\left(n^{\log _{b} a} \lg n\right)$$</li>
+<li>如果存在常数$\epsilon&gt;0$, $$f(n)=\Omega\left(n^{\log _{b} a+\epsilon}\right)$$成立，且存在常数$c&lt;1$，对足够大的$n$，有$$a f(n / b) \leq c f(n)$$成立，那么$$T(n)=\Theta(f(n))$$</li>
 </ol>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://courses.edx.org/courses/course-v1:TsinghuaX+30240184.1x+3T2017/course/" target="_blank" rel="noopener">数据结构与算法设计 · 邓俊辉</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://book.douban.com/subject/20432061/" target="_blank" rel="noopener">算法导论</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
       
