@@ -268,6 +268,13 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#比较"><span class="toc-text">比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#层级-具体数学"><span class="toc-text">层级 (具体数学)</span></a></li></ol>
+    </div>
+  </div>
+
 
 
     <div class="post-content">
@@ -277,9 +284,17 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-<ol>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><ol>
 <li>$1 &lt; \log ^{*} n &lt; \log n &lt; n$</li>
 <li>$nlog n &lt; n^{c} &lt; 2^{n} &lt; n!$</li>
+</ol>
+<h2 id="层级-具体数学"><a href="#层级-具体数学" class="headerlink" title="层级 (具体数学)"></a>层级 (<a href="https://book.douban.com/subject/21323941/" target="_blank" rel="noopener">具体数学</a>)</h2><ol>
+<li>算术级数与末项平方同阶：$$<br>T(n)=1+2+\ldots+n=\left( \begin{array}{c}{n+1} \ {2}\end{array}\right)=\frac{n(n+1)}{2}=\mathcal{O}\left(n^{2}\right)<br>$$</li>
+<li>幂方级数比幂次高出一阶：$$<br>T(n)=\sum_{k=1}^{n} k^{2}=1^{2}+2^{2}+3^{2}+\ldots+n^{2}=n(n+1)(2 n+1) / 6=\mathcal{O}\left(n^{3}\right)<br>$$</li>
+<li>几何级数与末项同阶：$$<br>T(n)=\sum_{k=0}^{n} a^{k}=a^{0}+a^{1}+a^{2}+a^{3}+\ldots+a^{n}=\frac{a^{n+1}-1}{a-1}=\mathcal{O}\left(a^{n}\right), \quad 1&lt;a<br>$$</li>
+<li>收敛级数：$$<br>(1-\lambda) \cdot\left[1+2 \lambda+3 \lambda^{2}+4 \lambda^{3}+\ldots\right]=1 /(1-\lambda)=\mathcal{O}(1), \quad 0&lt;\lambda&lt;1<br>$$ // 几何分布</li>
+<li>调和级数：$$<br>T(n)=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\ldots+\frac{1}{n}=\Theta(\log n)<br>$$</li>
+<li>对数级数：$$<br>\log 1+\log 2+\log 3+\log 4+\ldots+\log n=\log (n !)=\Theta(n \log n)<br>$$</li>
 </ol>
 
       
