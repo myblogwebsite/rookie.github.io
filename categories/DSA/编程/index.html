@@ -17,12 +17,10 @@
 
 
 
-  <meta name="description" content="复杂度分析">
+  <meta name="description" content="A Renaissance person, also a Rookie!">
 
 
 
-
-  <meta name="keywords" content="算法, Rookie">
 
 
 
@@ -42,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://zhangydong.top/2019/03/04/analysis-complexity/">
+<link rel="canonical" href="https://zhangydong.top/categories/DSA/编程/">
 
 
 
@@ -108,7 +106,11 @@
   window.config = {"leancloud":{"app_id":"3wSIBDvbuwPeOwNdvk5zjLHf-gzGzoHsz","app_key":"6GVMLrROY8HRyVW4odP5iKWI"},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> 复杂度分析 - Rookie </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title>
+  
+    编程 · Rookie
+  
+</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -238,125 +240,47 @@
           <div id="content" class="content">
             
   
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          复杂度分析
-        
-      </h1>
+  
+  
 
-      <div class="post-meta">        
-        
-        <span class="post-time">
-          2019-03-04
+  <section id="archive" class="archive">
+    
+      
+        <div class="archive-title category">
+          <h2 class="archive-name">编程</h2>
+        </div>
+      
+    
+
+    
+      
+
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            2019-03-04
+          
         </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/DSA/">DSA</a>
-            
-              <a href="/categories/DSA/编程/">编程</a>
-            
-          </span>
-        
-        
-        <span class="post-visits" data-url="/2019/03/04/analysis-complexity/" data-title="复杂度分析">
-          阅读次数 0
+        <span class="archive-post-title">
+          <a href="/2019/03/04/analysis-complexity/" class="archive-post-link">
+            复杂度分析
+          </a>
         </span>
-        
       </div>
-    </header>
-
     
+  </section>
+
+  
+  <nav class="pagination">
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#比较1"><span class="toc-text">比较1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#层级1-具体数学"><span class="toc-text">层级1 (具体数学)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主方法2"><span class="toc-text">主方法2</span></a></li></ol>
-    </div>
-  </div>
-
-
-
-    <div class="post-content">
-      
-        <!-- TOC -->    
-<a id="more"></a>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-<h2 id="比较1"><a href="#比较1" class="headerlink" title="比较1"></a>比较<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h2><ol>
-<li>$1 &lt; \log ^{*} n &lt; \log n &lt; n$</li>
-<li>$nlog n &lt; n^{c} &lt; 2^{n} &lt; n!$</li>
-</ol>
-<h2 id="层级1-具体数学"><a href="#层级1-具体数学" class="headerlink" title="层级1 (具体数学)"></a>层级<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> (<a href="https://book.douban.com/subject/21323941/" target="_blank" rel="noopener">具体数学</a>)</h2><ol>
-<li>算术级数与末项平方同阶：$$<br>T(n)=1+2+\ldots+n=\left( \begin{array}{c}{n+1} \ {2}\end{array}\right)=\frac{n(n+1)}{2}=\mathcal{O}\left(n^{2}\right)<br>$$</li>
-<li>幂方级数比幂次高出一阶：$$<br>T(n)=\sum_{k=1}^{n} k^{2}=1^{2}+2^{2}+3^{2}+\ldots+n^{2}=n(n+1)(2 n+1) / 6=\mathcal{O}\left(n^{3}\right)<br>$$</li>
-<li>几何级数与末项同阶：$$<br>T(n)=\sum_{k=0}^{n} a^{k}=a^{0}+a^{1}+a^{2}+a^{3}+\ldots+a^{n}=\frac{a^{n+1}-1}{a-1}=\mathcal{O}\left(a^{n}\right), \quad 1&lt;a<br>$$</li>
-<li>收敛级数：$$<br>(1-\lambda) \cdot\left[1+2 \lambda+3 \lambda^{2}+4 \lambda^{3}+\ldots\right]=1 /(1-\lambda)=\mathcal{O}(1), \quad 0&lt;\lambda&lt;1（几何分布）<br>$$ </li>
-<li>调和级数：$$<br>T(n)=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\ldots+\frac{1}{n}=\Theta(\log n)<br>$$</li>
-<li>对数级数：$$<br>\log 1+\log 2+\log 3+\log 4+\ldots+\log n=\log (n !)=\Theta(n \log n)<br>$$</li>
-</ol>
-<h2 id="主方法2"><a href="#主方法2" class="headerlink" title="主方法2"></a>主方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h2><p>对于递推式$$<br>T(n)=a T(n / b)+f(n)<br>$$其中$a \geq 1, b&gt;1, n$是非负整数。</p>
-<ol>
-<li>如果存在常数$\epsilon&gt;0$，满足$$f(n)=O\left(n^{\log _{b} a-\epsilon}\right),$$那么$$T(n)=\Theta\left(n^{\log _{b} a}\right)$$</li>
-<li>如果$$f(n)=\Theta\left(n^{\log _{b} a}\right),$$那么$$T(n)=\Theta\left(n^{\log _{b} a} \lg n\right)$$</li>
-<li>如果存在常数$\epsilon&gt;0$, 有$$f(n)=\Omega\left(n^{\log _{b} a+\epsilon}\right)$$成立，且存在常数$c&lt;1$，对足够大的$n$，有$$a f(n / b) \leq c f(n)$$成立，那么$$T(n)=\Theta(f(n))$$</li>
-</ol>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://courses.edx.org/courses/course-v1:TsinghuaX+30240184.1x+3T2017/course/" target="_blank" rel="noopener">数据结构与算法设计 · 邓俊辉</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://book.douban.com/subject/20432061/" target="_blank" rel="noopener">算法导论</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
-      
-    </div>
-
-    
-      
-      
-
-
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/算法/">算法</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-    
-      <a class="next" href="/2019/01/19/Sql-学习/">
-        <span class="next-text nav-default">SQL 学习</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
     
   </nav>
 
 
-      </footer>
-    
-
-  </article>
 
 
           </div>
           
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDE0NS8xMDY4Mg==">
-        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-      </div>  
-    
-  </div>
-
 
         </div>
       </main>
@@ -491,24 +415,7 @@
   
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
   </body>
 </html>
