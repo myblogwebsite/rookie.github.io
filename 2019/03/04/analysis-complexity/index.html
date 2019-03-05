@@ -291,18 +291,18 @@
 <li>$nlog n &lt; n^{c} &lt; 2^{n} &lt; n!$</li>
 </ol>
 <h2 id="层级1-具体数学"><a href="#层级1-具体数学" class="headerlink" title="层级1 (具体数学)"></a>层级<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> (<a href="https://book.douban.com/subject/21323941/" target="_blank" rel="noopener">具体数学</a>)</h2><ol>
-<li>算术级数与末项平方同阶：<script type="math/tex">T(n)=1+2+\ldots+n=\left( \begin{array}{c}{n+1} \\ {2}\end{array}\right)=\frac{n(n+1)}{2}=\mathcal{O}\left(n^{2}\right)</script></li>
-<li>幂方级数比幂次高出一阶：<script type="math/tex">T(n)=\sum_{k=1}^{n} k^{2}=1^{2}+2^{2}+3^{2}+\ldots+n^{2}=n(n+1)(2 n+1) / 6=\mathcal{O}\left(n^{3}\right)</script></li>
-<li>几何级数与末项同阶：<script type="math/tex">T(n)=\sum_{k=0}^{n} a^{k}=a^{0}+a^{1}+a^{2}+a^{3}+\ldots+a^{n}=\frac{a^{n+1}-1}{a-1}=\mathcal{O}\left(a^{n}\right), \quad 1<a</script></li>
-<li>收敛级数：<script type="math/tex">(1-\lambda) \cdot\left[1+2 \lambda+3 \lambda^{2}+4 \lambda^{3}+\ldots\right]=1 /(1-\lambda)=\mathcal{O}(1), \quad 0<\lambda<1（几何分布）</script> </li>
-<li>调和级数：<script type="math/tex">T(n)=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\ldots+\frac{1}{n}=\Theta(\log n)</script></li>
-<li>对数级数：<script type="math/tex">\log 1+\log 2+\log 3+\log 4+\ldots+\log n=\log (n !)=\Theta(n \log n)</script></li>
+<li>算术级数与末项平方同阶：$$<br>T(n)=1+2+\ldots+n=\left( \begin{array}{c}{n+1} \ {2}\end{array}\right)=\frac{n(n+1)}{2}=\mathcal{O}\left(n^{2}\right)<br>$$</li>
+<li>幂方级数比幂次高出一阶：$$<br>T(n)=\sum_{k=1}^{n} k^{2}=1^{2}+2^{2}+3^{2}+\ldots+n^{2}=n(n+1)(2 n+1) / 6=\mathcal{O}\left(n^{3}\right)<br>$$</li>
+<li>几何级数与末项同阶：$$<br>T(n)=\sum_{k=0}^{n} a^{k}=a^{0}+a^{1}+a^{2}+a^{3}+\ldots+a^{n}=\frac{a^{n+1}-1}{a-1}=\mathcal{O}\left(a^{n}\right), \quad 1&lt;a<br>$$</li>
+<li>收敛级数：$$<br>(1-\lambda) \cdot\left[1+2 \lambda+3 \lambda^{2}+4 \lambda^{3}+\ldots\right]=1 /(1-\lambda)=\mathcal{O}(1), \quad 0&lt;\lambda&lt;1（几何分布）<br>$$ </li>
+<li>调和级数：$$<br>T(n)=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\ldots+\frac{1}{n}=\Theta(\log n)<br>$$</li>
+<li>对数级数：$$<br>\log 1+\log 2+\log 3+\log 4+\ldots+\log n=\log (n !)=\Theta(n \log n)<br>$$</li>
 </ol>
-<h2 id="主方法2"><a href="#主方法2" class="headerlink" title="主方法2"></a>主方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h2><p>对于递推式$$<br>T(n)=a T(n / b)+f(n)</p>
-<script type="math/tex; mode=display">其中$a \geq 1, b>1, n$是非负整数。
-1. 如果存在常数$\epsilon>0$，满足$$f(n)=O\left(n^{\log _{b} a-\epsilon}\right),$$那么$$T(n)=\Theta\left(n^{\log _{b} a}\right)</script><ol>
-<li>如果<script type="math/tex">f(n)=\Theta\left(n^{\log _{b} a}\right),</script>那么<script type="math/tex">T(n)=\Theta\left(n^{\log _{b} a} \lg n\right)</script></li>
-<li>如果存在常数$\epsilon&gt;0$, 有<script type="math/tex">f(n)=\Omega\left(n^{\log _{b} a+\epsilon}\right)</script>成立，且存在常数$c&lt;1$，对足够大的$n$，有<script type="math/tex">a f(n / b) \leq c f(n)</script>成立，那么<script type="math/tex">T(n)=\Theta(f(n))</script></li>
+<h2 id="主方法2"><a href="#主方法2" class="headerlink" title="主方法2"></a>主方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h2><p>对于递推式$$<br>T(n)=a T(n / b)+f(n)<br>$$其中$a \geq 1, b&gt;1, n$是非负整数。</p>
+<ol>
+<li>如果存在常数$\epsilon&gt;0$，满足$$f(n)=O\left(n^{\log _{b} a-\epsilon}\right),$$那么$$T(n)=\Theta\left(n^{\log _{b} a}\right)$$</li>
+<li>如果$$f(n)=\Theta\left(n^{\log _{b} a}\right),$$那么$$T(n)=\Theta\left(n^{\log _{b} a} \lg n\right)$$</li>
+<li>如果存在常数$\epsilon&gt;0$, 有$$f(n)=\Omega\left(n^{\log _{b} a+\epsilon}\right)$$成立，且存在常数$c&lt;1$，对足够大的$n$，有$$a f(n / b) \leq c f(n)$$成立，那么$$T(n)=\Theta(f(n))$$</li>
 </ol>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://courses.edx.org/courses/course-v1:TsinghuaX+30240184.1x+3T2017/course/" target="_blank" rel="noopener">数据结构与算法设计 · 邓俊辉</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://book.douban.com/subject/20432061/" target="_blank" rel="noopener">算法导论</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
       
