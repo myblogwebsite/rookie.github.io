@@ -340,54 +340,22 @@
       
         
         
+          
+        
 
         
-          <h1 id="写作缘由"><a href="#写作缘由" class="headerlink" title="写作缘由"></a>写作缘由</h1><p>$\LaTeX$的论文排版无可替代，而学校不会专门教排版设计。<br>针对人文社科类学位论文写作，从基本的文字编辑，数据分析，进度管理，版本控制到最后的排版设计，笔者写下这篇文章，<br>希望能够帮助大家完成自己的<br>毕业论文。<br>默认读者使用 <i class="fab fa-windows"></i>  Windows10操作系统，<br><i class="fab fa-apple"></i>  Mac 原理一样，Linux&#x2026;<i class="fab fa-linux"></i> 嗯，你应该比我知道的多。</p>
-<h1 id="文字编辑"><a href="#文字编辑" class="headerlink" title="文字编辑"></a>文字编辑</h1><h2 id="Org-mode-安装"><a href="#Org-mode-安装" class="headerlink" title="Org-mode 安装"></a>Org-mode 安装</h2><p>注：在 buffer 中，C 代表 <kbd>Ctrl</kbd> 键， M 代表 <kbd>Alt</kbd> 键，RET 代表 <kbd>Enter</kbd>，小写字母就是实际字母。</p>
-<ul>
-<li>下载<a href="https://www.gnu.org/software/emacs/download.html" target="_blank" rel="noopener">Emacs</a> 26.2，安装最新版 <a href="https://orgmode.org/elpa.html" target="_blank" rel="noopener">Org-mode</a> 9.2.4，官网说的配置文件 <strong>init file</strong> 需要新建：</li>
-<li>打开 <strong>runemacs.exe</strong> ，<kbd>Ctrl</kbd> <kbd>x</kbd> <kbd>Ctrl</kbd> <kbd>f</kbd> 输入 <strong>.emacs</strong> ，新建完成</li>
-<li>按照官网介绍操作，安装完成后，<kbd>Alt</kbd> <kbd>x</kbd> org-version，应该就是与官网一致的版本。</li>
-</ul>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>参照国外大佬的<a href="https://pan.baidu.com/s/1p6CRrnt6c0WrROvLW0BjRA" target="_blank" rel="noopener">视频（提取码：26qz ）</a>，主要记 <strong>快捷键</strong> （输入字母可以识别，但不是最新的，比如大写字母都改小写了），介绍顺序在<a href="https://orgmode.org/worg/org-tutorials/org-screencasts/org-mode-google-tech-talk.html" target="_blank" rel="noopener">这儿</a>。</p>
-<h2 id="特殊写作环境"><a href="#特殊写作环境" class="headerlink" title="特殊写作环境"></a>特殊写作环境</h2><p>写作前，开头加入这段文本:</p>
-<pre><code># -*- coding: utf-8 -*-
-</code></pre><p>保证你的文字导出时不会乱码。</p>
-<p>1.摘要</p>
-<pre><code>#+begin_abstract
-摘要测试
-#+end_abstract
-</code></pre><p>2.代码</p>
-<p><kbd>Ctrl</kbd> <kbd>c</kbd> <kbd>Ctrl</kbd> <kbd>,</kbd></p>
-<p>默认为verbatim环境，<br>如果要用 minted 宏包，确认你有安装了Python包pygments，建议安装 <strong>Anaconda</strong> ，然后在 #+begin<br>前一行加上</p>
-<pre><code>#+ATTR_LATEX: :options org-latex-minted-options
-</code></pre><h1 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h1><p>SPSS良心14天试用期够用了，如果你经常要写论文，推荐学习一下 <strong>R</strong> 语言。</p>
-<h1 id="TODO-使用-Org-mode-的GTD工作流程"><a href="#TODO-使用-Org-mode-的GTD工作流程" class="headerlink" title="TODO 使用 Org-mode 的GTD工作流程"></a>TODO 使用 Org-mode 的GTD工作流程</h1><h1 id="版本控制-Git-（可选）"><a href="#版本控制-Git-（可选）" class="headerlink" title="版本控制 Git （可选）"></a>版本控制 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a> （可选）</h1><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰的Git教程</a></p>
-<h1 id="协同写作"><a href="#协同写作" class="headerlink" title="协同写作"></a>协同写作</h1><p><kbd>Ctrl</kbd> <kbd>c</kbd> <kbd>Ctrl</kbd> <kbd>e</kbd> 导出utf-8文本，供导师修改（反正排版是最后做的）。</p>
-<h1 id="排版设计"><a href="#排版设计" class="headerlink" title="排版设计"></a>排版设计</h1><p>笔者在设计过程中发现Org-mode中用 XeLaTeX 写中文文档很早就有人写配置（添加在 <strong>.emacs</strong> 文件的）了，<br>现在笔者添加到 <a href="https://github.com/Tom007Cheung/Org-XeLaTeX/blob/master/ox-latex.el" target="_blank" rel="noopener">ox-latex.el</a> 里，然后编译：<kbd>Alt</kbd> <kbd>x</kbd> byte-compile-file（支持 <kbd>TAB</kbd> 键自动补全），<br>重新打开 runemacs.exe （推荐添加到桌面快捷方式）就可以使用了。<br>所有文本写完之后，跳到开头，<kbd>Ctrl</kbd> <kbd>c</kbd> <kbd>Ctrl</kbd> <kbd>e</kbd> <kbd>#</kbd>，输入latex，应该可以看到一下信息：</p>
-<pre><code>#+latex_class: ctexrep
-#+latex_class_options:&lt;默认为[12pt, a4paper],可以自己设置&gt;
-#+latex_header:\usepackage{学校 \LaTeX 模板样式（.sty结尾），我用的 ecnu}
-#+latex_header_extra:
-#+description:
-#+keywords:
-#+subtitle:
-#+title: &lt;默认显示你的文件名&gt;
-#+latex_compiler: xelatex
-#+date: \today
-</code></pre><p>如果有学校封面，title，date可以删掉。</p>
-<p>表格，图片一律使用图片导入：<kbd>Ctrl</kbd> <kbd>c</kbd> <kbd>Ctrl</kbd> <kbd>l</kbd> file，选择你的本地图片路径即可。<br>示例：<br><img src="https://orgmode.org/img/org-mode-unicorn-logo.png" alt="img"></p>
-<h2 id="安装-TeXLive（强烈推荐）2019"><a href="#安装-TeXLive（强烈推荐）2019" class="headerlink" title="安装 TeXLive（强烈推荐）2019"></a>安装 <a href="https://zhuanlan.zhihu.com/p/64555335" target="_blank" rel="noopener">TeXLive</a>（强烈推荐）2019</h2><p>安装完成后，打开你的 <strong>.org</strong> 文件，<kbd>Ctrl</kbd> <kbd>c</kbd> <kbd>Ctrl</kbd> <kbd>e</kbd> <kbd>l</kbd> <kbd>o</kbd>，<br>即可打开编译好的 <strong>pdf</strong> 文件，当然可以自己改一下<br><strong>.tex</strong> 文件，这样排版工作量就会少很多。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><h2 id="基于-gbt-7714-2015-格式参考文献编译"><a href="#基于-gbt-7714-2015-格式参考文献编译" class="headerlink" title="基于 gbt-7714-2015 格式参考文献编译"></a>基于 gbt-7714-2015 格式参考文献编译</h2><h3 id="org-ref-插件"><a href="#org-ref-插件" class="headerlink" title="org ref 插件"></a><a href="https://github.com/jkitchin/org-ref" target="_blank" rel="noopener">org ref</a> 插件</h3><p>[1] <a href="https://www.reddit.com/r/emacs/comments/4k1lp2/noob_question_how_to_set_locales_and_encoding_for/" target="_blank" rel="noopener">https://www.reddit.com/r/emacs/comments/4k1lp2/noob_question_how_to_set_locales_and_encoding_for/</a></p>
-<p>[2] <a href="https://www.cnblogs.com/wangkangluo1/archive/2012/02/04/2337705.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangkangluo1/archive/2012/02/04/2337705.html</a></p>
-<p>[3] <a href="http://www.cnblogs.com/visayafan/archive/2012/06/16/2552023.html" target="_blank" rel="noopener">http://www.cnblogs.com/visayafan/archive/2012/06/16/2552023.html</a></p>
-<p>[4] <a href="https://xiaoguo.net/wiki/org-mode-book.html" target="_blank" rel="noopener">https://xiaoguo.net/wiki/org-mode-book.html</a></p>
-<p>[5] <a href="https://orgmode.org/manual/index.html#SEC_Contents" target="_blank" rel="noopener">https://orgmode.org/manual/index.html#SEC_Contents</a></p>
-<p>[6] <a href="https://orgmode.org/worg/org-tutorials/org-screencasts/org-mode-google-tech-talk.html#sec-2" target="_blank" rel="noopener">https://orgmode.org/worg/org-tutorials/org-screencasts/org-mode-google-tech-talk.html#sec-2</a></p>
-<p>[7] <a href="https://zhuanlan.zhihu.com/p/64555335" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64555335</a></p>
-<p>[8] <a href="https://github.com/jkitchin/org-ref/blob/master/org-ref.org" target="_blank" rel="noopener">https://github.com/jkitchin/org-ref/blob/master/org-ref.org</a></p>
-<p><img src="https://www.adobe.com/content/dam/acom/en/legal/images/badges/PDF_24.png" alt="img"> <a href="Org-XeLaTeX.pdf">PDF 版本</a>下载</p>
+          <!-- TOC -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async src="path-to-mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
 
+<h1 id="写作缘由"><a href="#写作缘由" class="headerlink" title="写作缘由"></a>写作缘由</h1><p>$\LaTeX$的论文排版无可替代，而学校不会专门教排版设计。<br>针对人文社科类学位论文写作，从基本的文字编辑，数据分析，进度管理，版本控制到最后的排版设计，笔者写下这篇文章，<br>希望能够帮助大家完成自己的<br>毕业论文。<br>默认读者使用 <i class="fab fa-windows"></i>  Windows10操作系统，<br><i class="fab fa-apple"></i>  Mac 原理一样，Linux&#x2026;<i class="fab fa-linux"></i> 嗯，你应该比我知道的多。</p>
+          <div class="read-more">
+            <a href="/2019/07/23/人文社科类学位论文写作/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
